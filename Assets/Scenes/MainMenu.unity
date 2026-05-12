@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &81601337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81601339}
+  - component: {fileID: 81601338}
+  m_Layer: 0
+  m_Name: TooltipSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &81601338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81601337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446b02a1a6fce5e4da5dc7f3eef02066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipManager
+  tooltipPrefab: {fileID: 5483864647767509053, guid: 0e8705803ae6b4841a1a86754f24ce6c, type: 3}
+--- !u!4 &81601339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81601337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 400.6, y: 220.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &338601288
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +868,7 @@ GameObject:
   - component: {fileID: 867597477}
   - component: {fileID: 867597476}
   - component: {fileID: 867597475}
+  - component: {fileID: 867597478}
   m_Layer: 5
   m_Name: Btn_ChangeColor
   m_TagString: Untagged
@@ -932,6 +978,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867597473}
   m_CullTransparentMesh: 1
+--- !u!114 &867597478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867597473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80640a27e648e74ea119bd3dd36e057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
+  tooltipText: Change vehicle color - Tap to cycle through colors
+  delay: 0.5
 --- !u!1 &884815520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1901,7 @@ GameObject:
   - component: {fileID: 1575777434}
   - component: {fileID: 1575777433}
   - component: {fileID: 1575777432}
+  - component: {fileID: 1575777435}
   m_Layer: 5
   m_Name: Btn_ChangeWheel
   m_TagString: Untagged
@@ -1950,6 +2011,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575777430}
   m_CullTransparentMesh: 1
+--- !u!114 &1575777435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575777430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80640a27e648e74ea119bd3dd36e057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
+  tooltipText: Change wheel style - Cycle through different rims
+  delay: 0.5
 --- !u!1 &1600932088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,6 +2174,7 @@ GameObject:
   - component: {fileID: 1658440698}
   - component: {fileID: 1658440697}
   - component: {fileID: 1658440696}
+  - component: {fileID: 1658440699}
   m_Layer: 5
   m_Name: Btn_RotationToggle
   m_TagString: Untagged
@@ -2208,6 +2284,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658440694}
   m_CullTransparentMesh: 1
+--- !u!114 &1658440699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658440694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80640a27e648e74ea119bd3dd36e057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
+  tooltipText: Auto-rotate camera - Watch car spin slowly
+  delay: 0.5
 --- !u!1 &1832425908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,6 +2647,7 @@ GameObject:
   - component: {fileID: 2124100764}
   - component: {fileID: 2124100763}
   - component: {fileID: 2124100762}
+  - component: {fileID: 2124100765}
   m_Layer: 5
   m_Name: Btn_EngineToggle
   m_TagString: Untagged
@@ -2666,6 +2757,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124100760}
   m_CullTransparentMesh: 1
+--- !u!114 &2124100765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124100760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80640a27e648e74ea119bd3dd36e057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
+  tooltipText: Start/Stop engine - Hear the engine roar!
+  delay: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2674,3 +2779,4 @@ SceneRoots:
   - {fileID: 503241344}
   - {fileID: 884815524}
   - {fileID: 569355209}
+  - {fileID: 81601339}
