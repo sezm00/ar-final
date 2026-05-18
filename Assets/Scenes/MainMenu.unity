@@ -198,7 +198,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -298,11 +298,13 @@ MonoBehaviour:
   sfxSource: {fileID: 110308118}
   voiceoverSource: {fileID: 110308117}
   engineSource: {fileID: 110308116}
-  buttonClickSFX: {fileID: 0}
-  engineStartSFX: {fileID: 0}
-  engineIdleLoop: {fileID: 0}
-  engineStopSFX: {fileID: 0}
-  voiceoverClips: []
+  buttonClickSFX: {fileID: 8300000, guid: f8fa3a3cbc610e540948383d861bda77, type: 3}
+  engineStartSFX: {fileID: 8300000, guid: 567524bd4f16c254fbe8886111af4203, type: 3}
+  engineIdleLoop: {fileID: 8300000, guid: e4ec856df62a79040ae77399e56cbfef, type: 3}
+  engineStopSFX: {fileID: 8300000, guid: 399c86a0fcca5864a8fe4e6873b4c75f, type: 3}
+  voiceoverClips:
+  - {fileID: 8300000, guid: e5c51cfcc16cea14d9e509d2680658be, type: 3}
+  - {fileID: 8300000, guid: 3528f04c0d1a48c409b8e2a934390857, type: 3}
 --- !u!4 &110308115
 Transform:
   m_ObjectHideFlags: 0
@@ -330,10 +332,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -427,7 +429,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -524,8 +526,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
