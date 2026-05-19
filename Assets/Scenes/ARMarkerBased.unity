@@ -930,8 +930,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SerializedLibrary: {fileID: 11400000, guid: 24e3d7c2739a55542b09b9fa565c8c4f, type: 2}
-  m_MaxNumberOfMovingImages: 0
-  m_TrackedImagePrefab: {fileID: 0}
+  m_MaxNumberOfMovingImages: 2
+  m_TrackedImagePrefab: {fileID: 4567448009678688031, guid: fa793b1b05c4b0540b37aa90b8d0e9d2, type: 3}
 --- !u!114 &1827876247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +963,7 @@ MonoBehaviour:
   <trackablesChanged>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  m_PlanePrefab: {fileID: 6367025983930259772, guid: 83a2440ea849b22428fb49d4ed7a4f21, type: 3}
+  m_PlanePrefab: {fileID: 1585201990951412, guid: a6b7ca1d53c75490595d1f0d5f43be38, type: 3}
   m_DetectionMode: -1
 --- !u!114 &1827876249
 MonoBehaviour:
@@ -1024,8 +1024,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a903ed6a5a6db4ca427689277c2e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ImageTracking
-  dodgePrefab: {fileID: 4567448009678688031, guid: fa793b1b05c4b0540b37aa90b8d0e9d2, type: 3}
-  chevyPrefab: {fileID: 2530062482103942406, guid: 9ee7f8a6ea86ef042aac54fbc864b710, type: 3}
+  imageManager: {fileID: 1827876246}
+  imagePrefabs:
+  - imageName: Dodge
+    prefab: {fileID: 4567448009678688031, guid: fa793b1b05c4b0540b37aa90b8d0e9d2, type: 3}
+  - imageName: Chevy
+    prefab: {fileID: 2530062482103942406, guid: 9ee7f8a6ea86ef042aac54fbc864b710, type: 3}
 --- !u!4 &1912233122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4365528357719543085, guid: 13624e7b8844c9046b4b10a6c9cc06ae, type: 3}
