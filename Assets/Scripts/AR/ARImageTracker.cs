@@ -14,20 +14,21 @@ public class ImagePrefabEntry
 public class ARImageTracker : MonoBehaviour
 {
     [SerializeField] private ARTrackedImageManager imageManager;
+
     [SerializeField] private List<ImagePrefabEntry> imagePrefabs;
 
-    private Dictionary<string, GameObject> prefabLookup = new Dictionary<string, GameObject>();
+    private Dictionary<string, GameObject> prefabLookup =
+        new Dictionary<string, GameObject>();
+
+    private Dictionary<string, GameObject> spawnedObjects =
+        new Dictionary<string, GameObject>();
 
     private void Awake()
     {
-        if (imageManager == null)
-        {
-            imageManager = GetComponent<ARTrackedImageManager>();
-        }
 
         foreach (var entry in imagePrefabs)
         {
-            if (entry != null && entry.prefab != null && !prefabLookup.ContainsKey(entry.imageName))
+            if (!prefabLookup.ContainsKey(entry.imageName))
             {
                 prefabLookup.Add(entry.imageName, entry.prefab);
             }
@@ -48,68 +49,81 @@ public class ARImageTracker : MonoBehaviour
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            HandleImageAdded(trackedImage);
+            SpawnPrefab(trackedImage);
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
-            HandleImageUpdated(trackedImage);
+            UpdatePrefab(trackedImage);
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
-            HandleImageRemoved(trackedImage);
+            string imageName = trackedImage.referenceImage.name;
+
+            if (spawnedObjects.ContainsKey(imageName))
+            {
+                Destroy(spawnedObjects[imageName]);
+                spawnedObjects.Remove(imageName);
+            }
+
+            Debug.Log("Removed image: " + imageName);
         }
     }
 
-    private void HandleImageAdded(ARTrackedImage trackedImage)
+    private void SpawnPrefab(ARTrackedImage trackedImage)
     {
         string imageName = trackedImage.referenceImage.name;
 
-        if (prefabLookup.TryGetValue(imageName, out GameObject prefab))
+        if (!prefabLookup.ContainsKey(imageName))
         {
-            GameObject spawnedContent = Instantiate(
-                prefab,
-                trackedImage.transform.position,
-                trackedImage.transform.rotation,
-                trackedImage.transform
-            );
-
-            spawnedContent.name = imageName + "_Spawned";
-        }
-        else
-        {
-            Debug.LogWarning("No prefab assigned for image: " + imageName);
-        }
-    }
-
-    private void HandleImageUpdated(ARTrackedImage trackedImage)
-    {
-        if (trackedImage.transform.childCount == 0)
-        {
+            Debug.LogWarning("No prefab assigned for: " + imageName);
             return;
         }
 
-        GameObject content = trackedImage.transform.GetChild(0).gameObject;
+        if (spawnedObjects.ContainsKey(imageName))
+            return;
+
+        GameObject prefab = prefabLookup[imageName];
+
+        GameObject spawnedObject = Instantiate(
+            prefab,
+            trackedImage.transform.position,
+            trackedImage.transform.rotation
+        );
+
+        spawnedObject.transform.SetParent(trackedImage.transform);
+
+        spawnedObjects.Add(imageName, spawnedObject);
+
+        Debug.Log("Spawned prefab for: " + imageName);
+    }
+
+    private void UpdatePrefab(ARTrackedImage trackedImage)
+    {
+        string imageName = trackedImage.referenceImage.name;
+
+        if (!spawnedObjects.ContainsKey(imageName))
+            return;
+
+        GameObject spawnedObject = spawnedObjects[imageName];
+
+        spawnedObject.transform.position = trackedImage.transform.position;
+        spawnedObject.transform.rotation = trackedImage.transform.rotation;
 
         switch (trackedImage.trackingState)
         {
             case TrackingState.Tracking:
-                content.SetActive(true);
+                spawnedObject.SetActive(true);
                 break;
 
             case TrackingState.Limited:
-                content.SetActive(true);
+                spawnedObject.SetActive(true);
                 break;
 
             case TrackingState.None:
-                content.SetActive(false);
+                spawnedObject.SetActive(false);
                 break;
         }
-    }
-
-    private void HandleImageRemoved(ARTrackedImage trackedImage)
-    {
-        Debug.Log("Image removed: " + trackedImage.referenceImage.name);
     }
 }
