@@ -14773,7 +14773,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3952534950931852636}
@@ -16073,8 +16073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f059c3a9bf59fd40a576d1467d8f813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleFloat
-  floatSpeed: 1
-  floatHeight: 10
+  floatSpeed: 0.1
+  floatHeight: 0.25
 --- !u!1 &4818785350375372884
 GameObject:
   m_ObjectHideFlags: 0
